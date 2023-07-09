@@ -6,13 +6,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-logo">
-        {" "}
         <NavLink exact to="/" className="nav-logo">
           ARACHNOMESH
         </NavLink>
       </div>
       <div className="nav-container">
-        <NavLink className="nav-items" to="/">
+        <NavLink className="nav-items" to="/" exact>
           Home
         </NavLink>
         <NavLink className="nav-items" to="/about">
