@@ -7,43 +7,52 @@ import Contact from "./Pages/Contact";
 import Login from "./Pages/Login";
 import Navbar from "./Components/Navbar";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 function App() {
-  const history = useNavigate();
-  history("/");
+  
+  function RedirectExample() {
+    useEffect(() => {
+      const timeout = setTimeout(() => {
+        // 👇️ redirects to an external URL
+        window.location.replace('/')
+      }, 1000);
+  
+      return () => clearTimeout(timeout);
+    }, []);
+  
+    return <>Will redirect in 3 seconds...</>;
+  }
 
   return (
     <>
-    {/* <Router> */}
-     
-        <Navbar />
+      {/* <Router> */}
 
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home />}>
-              Home
-            </Route>
-            <Route path="/about" element={<About />}>
-              About
-            </Route>
-            <Route path="/bottles" element={<Bottles />}>
-              Bottles
-            </Route>
-            <Route path="/about" element={<About />}>
-              About
-            </Route>
-            <Route path="/contact" element={<Contact />}>
-              {" "}
-              Contact
-            </Route>
-            <Route path="/login" element={<Login />}>
-              Login
-            </Route>
-          </Routes>
-        </div>
-     
-    {/* </Router> */}
+      <Navbar />
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />}>
+            Home
+          </Route>
+          <Route path="/about" element={<About />}>
+            About
+          </Route>
+          <Route path="/bottles" element={<Bottles />}>
+            Bottles
+          </Route>
+          <Route path="/about" element={<About />}>
+            About
+          </Route>
+          <Route path="/contact" element={<Contact />}>
+            {" "}
+            Contact
+          </Route>
+          <Route path="/login" element={<Login />}>
+            Login
+          </Route>
+        </Routes>
+      </div>
+
+      {/* </Router> */}
     </>
   );
 }
