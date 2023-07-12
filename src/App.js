@@ -9,24 +9,8 @@ import Navbar from "./Components/Navbar";
 import { useEffect } from "react";
 
 function App() {
-  
-  function RedirectExample() {
-    useEffect(() => {
-      const timeout = setTimeout(() => {
-        // 👇️ redirects to an external URL
-        window.location.replace('/')
-      }, 1000);
-  
-      return () => clearTimeout(timeout);
-    }, []);
-  
-    return <>Will redirect in 3 seconds...</>;
-  }
-
   return (
     <>
-      {/* <Router> */}
-
       <Navbar />
       <div className="App">
         <Routes>
@@ -43,7 +27,6 @@ function App() {
             About
           </Route>
           <Route path="/contact" element={<Contact />}>
-            {" "}
             Contact
           </Route>
           <Route path="/login" element={<Login />}>
@@ -51,8 +34,6 @@ function App() {
           </Route>
         </Routes>
       </div>
-
-      {/* </Router> */}
     </>
   );
 }

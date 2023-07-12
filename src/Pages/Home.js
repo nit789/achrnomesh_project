@@ -4,26 +4,26 @@ import image1 from "../images/bottlein.png";
 import image2 from "../images/bottleout.png";
 import cart from "../images/Cart.png";
 const Home = () => {
-  const [check, setCheck] = useState(false);
+  const [isHover, setisHover] = useState(false);
 
   const handleEnter = () => {
-    setCheck(true);
+    setisHover(true);
   };
   const handleLeave = () => {
-    setCheck(false);
+    setisHover(false);
   };
-  console.log(check);
-  const disableBottleCapCss = check ? "bottle-cap" : "bottle-cap-initial ";
-  const disableBottleCss = check ? "bottle" : "bottle-initial";
-  const disableMessageBorderCss = check
+
+  const disableBottleCapCss = isHover ? "bottle-cap" : "bottle-cap-initial ";
+  const disableBottleCss = isHover ? "bottle" : "bottle-initial";
+  const disableMessageBorderCss = isHover
     ? "message-border"
     : "message-border-initial";
 
-  const disableMessageCss = check ? "message" : "";
-  const disableMessageInnerCss = check ? "message-inner" : " ";
+  const disableMessageCss = isHover ? "message" : "";
+  const disableMessageInnerCss = isHover ? "message-inner" : " ";
 
-  const disableKnowMoreCss = check ? "know-more" : " ";
-  const disableKnowMoreButtonCss = check ? "know-more-button" : " ";
+  const disableKnowMoreCss = isHover ? "know-more" : " ";
+  const disableKnowMoreButtonCss = isHover ? "know-more-button" : " ";
 
   return (
     <>
@@ -40,24 +40,22 @@ const Home = () => {
         </div>
         <div className={` ${disableMessageBorderCss} `}>
           <div className={` ${disableMessageCss}`}>
-            {check && `Self Cleaning bottle In 60 Seconds`}
+            {isHover && `Self Cleaning bottle In 60 Seconds`}
           </div>
           <div className={` ${disableMessageInnerCss}  `}>
-            {check &&
-              ` Hit refresh with the intelligently clean bottle built for adventure.`}
+            {isHover &&` Hit refresh with the intelligently clean bottle built for adventure.`}
           </div>
         </div>
         <button className={`${disableKnowMoreCss} `}>
-          <div className={` ${disableKnowMoreButtonCss} `}>
-            {check && `KNOW MORE`}
-          </div>
+          <div className={` ${disableKnowMoreButtonCss} `}>  {isHover && `KNOW MORE`}</div>
         </button>
-        <button className="add-to-cart">
+      
+      </div>
+      <button className="add-to-cart">
           <div className="cart-button">
             <img src={cart}></img>Add to Cart
           </div>
         </button>
-      </div>
     </>
   );
 };
